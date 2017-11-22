@@ -1,0 +1,6 @@
+<%= link_to 'airport', airport_path(@airport) %>
+
+<%= form_for @plane do |f| %>
+	<p><%= f.text_field :name %></p>
+	<p><%= f.submit %></p>
+<% end %>

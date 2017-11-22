@@ -1,0 +1,18 @@
+<%= link_to 'plane', plane_path(@plane) %>
+
+<h1><%= @bag.name %></h1>
+<h2>bags:</h2>
+<% @bags.each do |bag| %>
+	<div>
+	<%= bag.name %> 
+	<span><%= link_to 'delete', bag_path(bag), method: :delete %> </span> 
+	<span><%= link_to 'Show', bag_path(bag) %></span> 
+	<span><%= link_to 'Edit', edit_bag_path(bag) %></span> 
+	</div>
+<% end %>
+<%= form_for @bag, url: passenger_bags_path(@passenger) do |f| %>
+	<p><%= f.text_field :name %></p>
+	<p><%= f.submit %></p>
+<% end %>
+
+<%= will_paginate @bags %>

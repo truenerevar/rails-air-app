@@ -1,0 +1,16 @@
+
+<% @airports.each do |airport| %>
+	<div>
+	<%= airport.name %> 
+	<span><%= link_to 'delete', airport_path(airport), method: :delete %> </span> 
+	<span><%= link_to 'Show', airport_path(airport) %></span> 
+	<span><%= link_to 'Edit', edit_airport_path(airport) %></span> 
+	</div>
+<% end %>
+<%= form_for @airport do |f| %>
+	<p><%= f.text_field :name %></p>
+	<p><%= f.file_field :avatar %></p>
+	<p><%= f.submit %></p>
+<% end %>
+
+<%= will_paginate @airports %>

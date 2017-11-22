@@ -1,0 +1,6 @@
+<%= link_to 'plane', plane_path(@plane) %>
+
+<%= form_for @passenger do |f| %>
+	<p><%= f.text_field :name %></p>
+	<p><%= f.submit %></p>
+<% end %>

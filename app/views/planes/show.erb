@@ -1,0 +1,18 @@
+<%= link_to 'airport', airport_path(@airport) %>
+
+<h1><%= @plane.name %></h1>
+<h2>Passengers:</h2>
+<% @passengers.each do |passenger| %>
+	<div>
+	<%= passenger.name %> 
+	<span><%= link_to 'delete', passenger_path(passenger), method: :delete %> </span> 
+	<span><%= link_to 'Show', passenger_path(passenger) %></span> 
+	<span><%= link_to 'Edit', edit_passenger_path(passenger) %></span> 
+	</div>
+<% end %>
+<%= form_for @passenger, url: plane_passengers_path(@plane) do |f| %>
+	<p><%= f.text_field :name %></p>
+	<p><%= f.submit %></p>
+<% end %>
+
+<%= will_paginate @passengers %>

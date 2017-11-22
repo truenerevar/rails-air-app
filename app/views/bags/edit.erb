@@ -1,0 +1,6 @@
+<%= link_to 'passenger', passenger_path(@passenger) %>
+
+<%= form_for @bag do |f| %>
+	<p><%= f.text_field :name %></p>
+	<p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,18 @@
+<%= link_to 'airports', airports_path %>
+<%= image_tag(@airport.avatar_url) if @airport.avatar? %>
+<h1><%= @airport.name %></h1>
+<h2>Planes:</h2>
+<% @planes.each do |plane| %>
+	<div>
+	<%= plane.name %> 
+	<span><%= link_to 'delete', plane_path(plane), method: :delete %> </span> 
+	<span><%= link_to 'Show', plane_path(plane) %></span> 
+	<span><%= link_to 'Edit', edit_plane_path(plane) %></span> 
+	</div>
+<% end %>
+<%= form_for @plane, url: airport_planes_path(@airport) do |f| %>
+	<p><%= f.text_field :name %></p>
+	<p><%= f.submit %></p>
+<% end %>
+
+<%= will_paginate @planes %>
