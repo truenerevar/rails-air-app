@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 		resources :bags, only: [:new, :create]
 	end
 	resources :bags, except: [:new, :create, :index]
-
+	
+	get "/admin" => "admin#index"
+	
+	namespace :admin do
+	  resources :users, only: :destroy
+	end
+	
 	root 'airports#index'
 end
